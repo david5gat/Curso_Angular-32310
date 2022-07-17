@@ -1,0 +1,82 @@
+@media (max-width:400px ) and ( min-width:300px ) {
+    .texto{
+        font-size: 0.5em;
+        text-align: left;
+        display: flex;
+        position: relative;
+        left: -6em;
+        top: 1em;
+    }
+
+    .card{
+        height: 140px;
+        
+    }
+}
+
+@media (max-width:500px ) and ( min-width:400px ) {
+    
+    .texto{
+        font-size: 0.8em;
+        text-align: left;
+        display: flex;
+        position: relative;
+        left: -4em;
+        top: 1em;
+    }
+    
+    .card{
+        height: 220px;
+    }
+    
+}
+
+
+
+
+@media (max-width:800px ) and ( min-width:500px ) {
+    .texto{
+        font-size: 1em;
+        text-align: left;
+        display: flex;
+        position: relative;
+        left: -3em;
+        top: 1em;
+    }
+
+    .card{
+        height: 250px;
+    }
+}
+
+@media (max-width:1200px ) and ( min-width:800px ) {
+    .texto{
+        font-size: 1em;
+        text-align: left;
+        display: flex;
+        position: relative;
+        left: -1em;
+        top: 1em;
+    }
+
+    .card{
+        height: 500px;
+    }
+}
+
+@media ( min-width:1200px ) {
+    .texto{
+        font-size: 1.5em;
+        text-align: left;
+        display: flex;
+        position: relative;
+        left: -1em;
+        top: 1em;
+    }
+    
+    .card{
+        height: 650px;
+    }
+}
+
+

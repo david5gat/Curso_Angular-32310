@@ -1,0 +1,7 @@
+
+.grid-container{
+    display: grid;
+    margin: 2%;
+    grid-template-columns: 'header  header  header  header  header  header  header' 
+                            'menu auto auto auto auto auto auto';
+}

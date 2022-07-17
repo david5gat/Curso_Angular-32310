@@ -1,0 +1,52 @@
+
+.navbar{
+    height: 100px;
+    text-align: center;
+   
+}
+
+@media (max-width:400px ) and ( min-width:300px ) {
+    h3{
+        font-size: 0.8em;
+    }
+
+    .navbar{
+        width: 95%;
+        position: relative;
+        right: -1.5em;
+        height: 50px;
+        text-align: center;
+    }
+}
+
+@media (max-width:500px ) and ( min-width:400px ) {
+
+    h3{
+        font-size: 0.8em;
+    }
+
+    .navbar{
+        width: 95%;
+        position: relative;
+        right: -1.5em;
+        height: 70px;
+        text-align: center;
+    }
+
+}
+
+@media (max-width:800px ) and ( min-width:500px ) {
+
+    h3{
+        font-size: 1em;
+    }
+
+    .navbar{
+        width: 95%;
+        position: relative;
+        right: -1.5em;
+        height: 80px;
+        text-align: center;
+    }
+
+}
