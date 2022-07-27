@@ -1,6 +1,39 @@
-<div class="container">
-    <div *ngFor="let alumno of alumnos" class="row bg-primary text-warning {{alumno}}">
-      {{alumno}}
+<div class="container rounded-3">
+    <div class="bg-dark text-info rounded-3">
+      <button type="button" [ngClass]="mostrar ? 'btn btn-info' : 'btn btn-secondary' " class=""  (click)="cambiar()">Mostrar notas de los alumnos</button>
+      <ol class="">
+
+        <ng-container *ngFor="let alumno of alumnos" >
+          <li *ngIf="mostrar == false" class="rounded-3"  style="padding: 15px;">
+            <div class="row">
+             <div class="col-10"><span class="spancol-1" >{{alumno.nombre}} {{alumno.apellido}}</span> </div>
+             <div class="col-2"><span class="spancol-2">{{alumno.puntaje}}</span> </div>
+            </div>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="mostrar == true">
+           <ng-container *ngFor="let alumno of alumnos" >
+             <li class="rounded-3" *ngIf="alumno.puntaje < 5 " style="padding: 15px;" [style.background-color]="alumno.puntaje < 5 ? '#8C0000':''">
+               <div class="row">
+                <div class="col-10"><span class="spancol-1">{{alumno.nombre}} {{alumno.apellido}}</span> </div>
+                <div class="col-2"><span class="spancol-2">{{alumno.puntaje}}</span> <span> Reprobado</span> </div>
+               </div>
+             </li>
+           </ng-container>
+           <br>
+           <ng-container *ngFor="let alumno of alumnos" >
+             <li class="rounded-3" *ngIf="alumno.puntaje >= 5" style="padding: 15px;" [style.background-color]="alumno.puntaje >= 5 ? 'green':''">
+               <div class="row">
+                <div class="col-10"><span >{{alumno.nombre}} {{alumno.apellido}}</span></div>
+                <div class="col-2"><span>{{alumno.puntaje}}</span> <span> Aprobado </span></div>
+               </div>
+             </li>
+           </ng-container>
+        </ng-container>
+
+      </ol>
+
     </div>
   </div>
   

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { ListaComponent } from './componentes/lista/lista.component';
+import { NombrepropioPipe } from './componentes/nombrepropio.pipe';
 
 
 
@@ -11,7 +12,8 @@ import { ListaComponent } from './componentes/lista/lista.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ListaComponent
+    ListaComponent,
+    NombrepropioPipe
   ],
   imports: [
     BrowserModule
