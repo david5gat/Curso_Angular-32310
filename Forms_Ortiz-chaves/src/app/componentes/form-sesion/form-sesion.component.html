@@ -1,0 +1,22 @@
+
+<div class="container bg-opacity-100" style="width: 17%; margin-top: 15%;">
+<form class="form-control bg-info bg-opacity-50" [formGroup]="formularioinicio" (ngSubmit)="enviar_sesion()">
+ <label class="form-label row">NOMBRE</label>
+ <input class="input-control" type="text" class="row" formControlName="nombre">
+ <p style="font-size: 14px; color: red;" *ngIf="formularioinicio.get('nombre')?.errors?.['required']">este campo es obligatorio</p>
+
+ <label class="form-label row ">APELLIDO</label>
+ <input class="input-control" type="text" class="row" formControlName="apellido">
+ <p style="font-size: 14px; color: red;" *ngIf="formularioinicio.get('apellido')?.errors?.['required']">este campo es obligatorio</p>
+
+ <label class="form-label row">CORREO</label>
+ <input class="input-control" type="text" class="row" formControlName="correo">
+ <p style="font-size: 14px; color: red;" *ngIf="formularioinicio.get('correo')?.errors?.['email']">este campo es obligatorio</p>
+
+ <label class="form-label row">CONTRASEÑA</label>
+ <input class="input-control" type="text" class="row" formControlName="contraseña">
+ <p  style="font-size: 14px; color: red;" *ngIf="formularioinicio.get('contraseña')?.errors?.['required']">este campo es obligatorio</p>
+
+ <button class="btn btn-secondary" style="margin:10px; margin-left:50px;" [disabled]="!formularioinicio.valid" type="submit">Enviar</button>
+</form>
+</div>

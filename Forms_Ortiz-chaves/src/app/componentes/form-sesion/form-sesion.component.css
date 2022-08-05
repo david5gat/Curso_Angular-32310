@@ -1,0 +1,12 @@
+
+@media (min-width:600px) {
+
+  .form-control{
+    width: 200px;
+  }
+}
+
+
+input{
+  width: 200px;
+}
