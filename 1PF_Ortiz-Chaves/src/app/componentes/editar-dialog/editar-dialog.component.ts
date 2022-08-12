@@ -45,7 +45,7 @@ export class EditarDialogComponent implements OnInit {
 
   verEstudiantes(){
      this.dialogEst.open(EstudiantesComponent,{
-      width: '400px',
+      width: '800px',
       data: this.formulario
     })
   }

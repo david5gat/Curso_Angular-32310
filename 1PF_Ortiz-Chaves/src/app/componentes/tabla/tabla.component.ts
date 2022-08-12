@@ -19,8 +19,9 @@ export interface numEstudiantes {
 }
 
 
-let cursoNumestudiantes: numEstudiantes[] = [
-  {id: 1, curso:'Angular',nombre:'janis',apellido:'joplin'}
+export let cursoNumestudiantes: numEstudiantes[] = [
+  {id: 1, curso:'Angular' ,nombre:'janis' ,apellido:'joplin'},
+  {id: 2, curso:'Angular' ,nombre:'juan' ,apellido:'hernandez'}
 ]
 
 const ELEMENT_DATA: Curso[] = [

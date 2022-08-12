@@ -9,6 +9,8 @@ import { EditarDialogComponent } from './componentes/editar-dialog/editar-dialog
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 import { EstudiantesComponent } from './componentes/estudiantes/estudiantes.component';
+import { AgregarEstudianteComponent } from './componentes/agregar-estudiante/agregar-estudiante.component';
+import { EditarEstudianteComponent } from './componentes/editar-estudiante/editar-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EstudiantesComponent } from './componentes/estudiantes/estudiantes.comp
     TablaComponent,
     EditarDialogComponent,
     ToolbarComponent,
-    EstudiantesComponent
+    EstudiantesComponent,
+    AgregarEstudianteComponent,
+    EditarEstudianteComponent
   ],
   imports: [
     BrowserModule,
