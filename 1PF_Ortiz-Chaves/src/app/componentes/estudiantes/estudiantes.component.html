@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Crear alumno</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="formularioEst" >
+
+  <mat-form-field appearance="fill">
+    <mat-label>id</mat-label>
+    <input formControlName="id" matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>curso</mat-label>
+    <input formControlName="curso" matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>nombre</mat-label>
+    <input formControlName="nombre" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>apellido</mat-label>
+    <input formControlName="apellido" matInput>
+  </mat-form-field>
+
+</form>
+
+</div>
+
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="cerrar()">Cerrar</button>
+  <button mat-button (click)="actualizar()">actualizar</button> -->
+</div>
