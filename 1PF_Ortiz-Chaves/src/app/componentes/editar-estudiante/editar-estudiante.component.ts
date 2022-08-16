@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {  MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { numEstudiantes } from '../tabla/tabla.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class EditarEstudianteComponent implements OnInit {
   formularioNuevoestudiante : FormGroup;
 
   constructor(
-    private dialogNuevoest : MatDialog,
+    private dialogRef_edit_estud : MatDialogRef<EditarEstudianteComponent>,
     private Fb : FormBuilder,
     @Inject(MAT_DIALOG_DATA) private data : numEstudiantes
   ) {
@@ -24,6 +24,14 @@ export class EditarEstudianteComponent implements OnInit {
       nombre: new FormControl(data.nombre),
       apellido: new FormControl(data.apellido)
     })
+  }
+
+  cerrar(){
+    this.dialogRef_edit_estud.close()
+  }
+
+  actualizar(){
+    this.dialogRef_edit_estud.close(this.formularioNuevoestudiante.value)
   }
 
   ngOnInit(): void {

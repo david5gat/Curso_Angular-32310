@@ -1,7 +1,7 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { numEstudiantes } from '../tabla/tabla.component';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { numEstudiantes, cursoNumestudiantes } from '../tabla/tabla.component';
 
 @Component({
   selector: 'app-agregar-estudiante',
@@ -12,17 +12,31 @@ import { numEstudiantes } from '../tabla/tabla.component';
 
 export class AgregarEstudianteComponent implements OnInit {
 
-  // formularioNuevoestudiante : FormGroup;
 
-  constructor(){}
+
+  formularioNuevoestudiante : FormGroup;
+
+  constructor(
+    private dialogRefedit_est: MatDialogRef<AgregarEstudianteComponent>,
+    private Fb : FormBuilder,
+    @Inject(MAT_DIALOG_DATA) private data : numEstudiantes
+  ) {
+     this.formularioNuevoestudiante = this.Fb.group({
+      id : new FormControl(cursoNumestudiantes[cursoNumestudiantes.length -1].id + 1),
+      curso: new FormControl(data.curso),
+      nombre: new FormControl(data.nombre),
+      apellido: new FormControl(data.apellido)
+    })
+  }
 
 
   cerrar(){
-
+    this.dialogRefedit_est.close();
+    alert(cursoNumestudiantes[cursoNumestudiantes.length -1].id + 1 )
   }
 
   agregar(){
-    alert('hola mundo')
+    this.dialogRefedit_est.close(cursoNumestudiantes.push(this.formularioNuevoestudiante.value))
   }
 
   ngOnInit(): void {

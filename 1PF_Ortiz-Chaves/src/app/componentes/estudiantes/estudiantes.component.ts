@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { numEstudiantes } from '../tabla/tabla.component';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { cursoNumestudiantes } from '../tabla/tabla.component';
-import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AgregarEstudianteComponent } from '../agregar-estudiante/agregar-estudiante.component';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -14,6 +13,8 @@ import { EditarEstudianteComponent } from '../editar-estudiante/editar-estudiant
   styleUrls: ['./estudiantes.component.scss']
 })
 export class EstudiantesComponent implements OnInit {
+
+  @ViewChild(MatTable) tabla!: MatTable<numEstudiantes>
 
   columnasEst: String[] = ['Id','Curso','Nombre','Apellido','acciones']
 
@@ -38,20 +39,32 @@ export class EstudiantesComponent implements OnInit {
   }
 
   agregarEst(){
-     this.dialogNuevoest.open(AgregarEstudianteComponent,{
+     const agregarRef = this.dialogNuevoest.open(AgregarEstudianteComponent,{
       width: '400px',
       data: this.formularioNuevoestudiante
+  })
+
+  agregarRef.afterClosed().subscribe( respuesta => {
+    if(respuesta){
+      this.tabla.renderRows()
+    }
   })
   };
 
   editarEst( elemnto : numEstudiantes ){
-    this.dialogNuevoest.open(EditarEstudianteComponent,{
+    const editarRef = this.dialogNuevoest.open(EditarEstudianteComponent,{
      width: '400px',
      data: elemnto
     })
 
-    console.log('hola mundo',elemnto);
-
+    editarRef.afterClosed().subscribe(resultado => {
+      if(resultado){
+        const item = this.dataSourceEst.data.find(numEstudiantes => numEstudiantes.id === resultado.id);
+        const index = this.dataSourceEst.data.indexOf(item!);
+        this.dataSourceEst.data[index] = resultado;
+        this.tabla.renderRows();
+      }
+    })
  };
 
 }

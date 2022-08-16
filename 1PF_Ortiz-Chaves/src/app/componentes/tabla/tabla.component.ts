@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { EditarDialogComponent } from '../editar-dialog/editar-dialog.component';
 
+
+
 export interface Curso{
   nombre: string;
   comision: string;
@@ -21,7 +23,8 @@ export interface numEstudiantes {
 
 export let cursoNumestudiantes: numEstudiantes[] = [
   {id: 1, curso:'Angular' ,nombre:'janis' ,apellido:'joplin'},
-  {id: 2, curso:'Angular' ,nombre:'juan' ,apellido:'hernandez'}
+  {id: 2, curso:'Angular' ,nombre:'juan' ,apellido:'hernandez'},
+  {id: 3, curso:'Angular' ,nombre:'julian' ,apellido:'montero'}
 ]
 
 const ELEMENT_DATA: Curso[] = [
@@ -56,12 +59,12 @@ export class TablaComponent implements OnInit {
 
   ) { }
 
+
   ngOnInit(): void {
   }
 
   eliminar(elemento: Curso){
     this.dataSource.data = this.dataSource.data.filter((curso:Curso) => curso.comision != elemento.comision)
-    console.log(elemento,this.dataSource.data);
   }
 
   editar(elemento : Curso){
