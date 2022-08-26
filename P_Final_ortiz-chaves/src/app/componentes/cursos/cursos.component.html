@@ -1,0 +1,47 @@
+
+<table mat-table [dataSource]="Cursos" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre_profesor">
+    <th mat-header-cell *matHeaderCellDef> nombre profesor </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre_profesor}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="apellido_profesor">
+    <th mat-header-cell *matHeaderCellDef> apellido profesor </th>
+    <td mat-cell *matCellDef="let element"> {{element.apellido_profesor}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="curso">
+    <th mat-header-cell *matHeaderCellDef> Curso </th>
+    <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="alumnos">
+    <th mat-header-cell *matHeaderCellDef> N° Alumnos </th>
+    <td mat-cell *matCellDef="let element"> {{element.alumnos}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="comision">
+    <th mat-header-cell *matHeaderCellDef> Comision </th>
+    <td mat-cell *matCellDef="let element"> {{element.comision}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> estado </th>
+    <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button (click)="obtenerCurso()"><mat-icon>delete</mat-icon></button>

@@ -20,14 +20,6 @@
   </ng-container>
 
 
-  <ng-container matColumnDef="eliminar">
-    <th mat-header-cell *matHeaderCellDef> Eliminar</th>
-    <td mat-cell *matCellDef="let element">
-    <button mat-icon-button (click)="eliminarCurso(element)">
-      <mat-icon>delete</mat-icon>
-    </button>
-    </td>
-  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="mostrarColumnas"></tr>
   <tr mat-row *matRowDef="let row; columns: mostrarColumnas;"></tr>
