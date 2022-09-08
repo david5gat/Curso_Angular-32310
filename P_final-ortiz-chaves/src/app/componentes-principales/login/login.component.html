@@ -1,0 +1,32 @@
+
+
+
+
+  <div class="login-pr container rounded-5" style="background-color: black; width: 25%;">
+
+    <form [formGroup]="form_login">
+
+      <div class="row">
+        <mat-form-field style="background-color: black;" appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field style="background-color: black;" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="contraseña">
+        </mat-form-field>
+      </div>
+
+    </form>
+
+
+    <button mat-raised-button color="primary" (click)="recibirLogin()">Iniciar sesion</button>
+  </div>
+
+
+
+
+
