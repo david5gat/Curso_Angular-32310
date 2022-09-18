@@ -17,6 +17,7 @@ export class EscuelaLoginService {
 
 
   constructor(
+    
   ) {
 
     this.sesionObservable = new BehaviorSubject(this.login)
@@ -29,7 +30,7 @@ export class EscuelaLoginService {
 
   enviarLogin(){
 
-
+    return from(this.login)
 
   }
 

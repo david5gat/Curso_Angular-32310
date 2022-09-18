@@ -1,12 +1,10 @@
 
 
+  <div class="login-pr container rounded-5" style="background-color: black; width: 65%;">
 
+    <form [formGroup]="form_login" class="form-log">
 
-  <div class="login-pr container rounded-5" style="background-color: black; width: 25%;">
-
-    <form [formGroup]="form_login">
-
-      <div class="row">
+      <div class="pad-1 row">
         <mat-form-field style="background-color: black;" appearance="outline">
         <mat-label>Correo</mat-label>
         <input matInput formControlName="correo">
@@ -23,7 +21,10 @@
     </form>
 
 
-    <button mat-raised-button color="primary" (click)="recibirLogin()">Iniciar sesion</button>
+    <button mat-raised-button id="bnt-form" color="primary" (click)="recibirLogin()">Iniciar sesion</button>
+
+    
+
   </div>
 
 

@@ -4,6 +4,7 @@ import { EscuelaLoginService } from '../../escuela-login/escuela-login.service';
 import { login } from '../../interfaces';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { __values } from 'tslib';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,13 @@ export class LoginComponent implements OnInit {
 
   form_login : FormGroup
 
-
+  says = false;
 
 
   constructor(
     public fb : FormBuilder,
-    private EscuelaLoginService : EscuelaLoginService
+    private EscuelaLoginService : EscuelaLoginService,
+    private router : Router
   ) {
 
    this.form_login = fb.group({
@@ -31,12 +33,10 @@ export class LoginComponent implements OnInit {
       contraseña : new FormControl('')
     })
 
-
-
+    this.EscuelaLoginService.enviarLogin().subscribe((s)=>{ this.log_A[0] = s})
+    
 
    }
-
-
 
 
   ngOnInit(): void {
@@ -45,13 +45,28 @@ export class LoginComponent implements OnInit {
   }
 
 
-
+  formulario_F1(){
+   
+  }
 
 
   recibirLogin(){
+    this.log_A[1] = this.form_login.value
 
+     this.says = this.log_A[0].correo.includes(this.log_A[1].correo)
 
+     
+    if( this.log_A[1].correo == '' && this.log_A[1].contraseña == '' ){
+      console.error('correo o contraseña vacios')
+    }else if (this.log_A[0].correo.includes(this.log_A[1].correo) != false && this.log_A[0].contraseña.includes(this.log_A[1].contraseña) != false){
+      
+      console.log('funciona')
+      this.router.navigate(['/cursos/curso'])
 
+    }
+    else {
+      console.error('la cuenta es incorrecta');
+    }
   }
 
 

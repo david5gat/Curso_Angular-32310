@@ -5,24 +5,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes-principales/login/login.component';
 import { NgmaterialModule } from './ngmaterial/ngmaterial.module';
-import { EscuelaService } from './escuela_curso_service/escuela_curso.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarComponent } from './componentes-principales/toolbar/toolbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ToolbarComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgmaterialModule
+    NgmaterialModule,
+    BrowserAnimationsModule,
+    FormsModule
+
   ],
   exports:[
-    NgmaterialModule
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgmaterialModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

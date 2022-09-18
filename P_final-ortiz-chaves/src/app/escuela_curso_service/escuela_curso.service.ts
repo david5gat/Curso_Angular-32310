@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { Cursos } from '../interfaces';
 
 @Injectable({
@@ -11,17 +11,14 @@ export class EscuelaService {
     {nombre_profesor:'david',apellido_profesor:'ortiz',curso:'Angular',comision:2345}
   ];
 
-  enviarCursoObs: Observable<Cursos[]>
+  
 
   constructor(
   ) {
-    this.enviarCursoObs = new Observable<Cursos[]>((d) => {
-      d.next(this.cursos)
-    })
   }
 
   enviarCurso(){
-    console.log(this.enviarCursoObs.subscribe)
+    return from(this.cursos)
   }
 
 }
