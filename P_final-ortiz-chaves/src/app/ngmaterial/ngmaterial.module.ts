@@ -11,6 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports:[
@@ -24,7 +25,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     MatCheckboxModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
 
   ]
 

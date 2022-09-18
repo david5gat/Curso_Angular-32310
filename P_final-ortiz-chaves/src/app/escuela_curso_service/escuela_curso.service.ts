@@ -8,6 +8,7 @@ import { Cursos } from '../interfaces';
 export class EscuelaService {
 
   cursos: Cursos[] = [
+    {nombre_profesor:'david',apellido_profesor:'ortiz',curso:'Angular',comision:2345},
     {nombre_profesor:'david',apellido_profesor:'ortiz',curso:'Angular',comision:2345}
   ];
 

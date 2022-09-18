@@ -5,26 +5,37 @@
 
     
     <ng-container matColumnDef="nombre_profesor">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <th mat-header-cell *matHeaderCellDef>Nombre Profesor</th>
       <td mat-cell *matCellDef="let element"> {{element.nombre_profesor}} </td>
     </ng-container>
   
     
     <ng-container matColumnDef="apellido_profesor">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef>Apellido Profesores</th>
       <td mat-cell *matCellDef="let element"> {{element.apellido_profesor}} </td>
     </ng-container>
   
    
     <ng-container matColumnDef="curso">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <th mat-header-cell *matHeaderCellDef>Curso</th>
       <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
     </ng-container>
   
     <!-- Symbol Column -->
     <ng-container matColumnDef="comision">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <th mat-header-cell *matHeaderCellDef>Comision</th>
       <td mat-cell *matCellDef="let element"> {{element.comision}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="editar">
+      <th mat-header-cell *matHeaderCellDef>editar</th>
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-icon-button (click)="edit_curso(element)">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>  
+      </td>
+      
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
