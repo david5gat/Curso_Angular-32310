@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       contraseña : new FormControl('')
     })
 
-    this.EscuelaLoginService.enviarLogin().subscribe((s)=>{ this.log_A[0] = s})
+    this.EscuelaLoginService.enviarLogin().subscribe((s)=>{ this.log_A[0] = s});
+
     
 
    }
@@ -57,8 +58,10 @@ export class LoginComponent implements OnInit {
 
      
     if( this.log_A[1].correo == '' && this.log_A[1].contraseña == '' ){
+      
       console.error('correo o contraseña vacios')
-    }else if (this.log_A[0].correo.includes(this.log_A[1].correo) != false && this.log_A[0].contraseña.includes(this.log_A[1].contraseña) != false){
+
+    }else if (this.log_A[0].correo.localeCompare(this.log_A[1].correo) != 1 && this.log_A[0].contraseña.localeCompare(this.log_A[1].contraseña) != 1){
       
       console.log('funciona')
       this.router.navigate(['/cursos/curso'])
@@ -71,7 +74,7 @@ export class LoginComponent implements OnInit {
 
 
 
-
+ 
 
 
 

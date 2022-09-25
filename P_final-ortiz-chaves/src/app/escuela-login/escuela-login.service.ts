@@ -20,13 +20,18 @@ export class EscuelaLoginService {
     
   ) {
 
-    this.sesionObservable = new BehaviorSubject(this.login)
+    this.sesionObservable = new BehaviorSubject(this.login);
+
+     this.recibir_Login
 
   }
 
 
-
-
+   recibir_Login(usuario : login){
+    
+    
+    
+   }
 
   enviarLogin(){
 
