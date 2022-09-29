@@ -45,10 +45,16 @@ export class CursosComponent implements OnInit {
     });
   }
 
+
    ngOnInit(): void {
 
-     this.escuelaService.enviarCurso().subscribe((resp)=>{
-      Curso_c.push(resp)
+     this.escuelaService.enviarCurso().subscribe((resp)=>{  
+       
+        if( Curso_c.length > 1 ){
+          console.error('el arreglo ya esta cargado')
+         }else{
+          Curso_c.push(resp)
+         }
      })
      console.log(Curso_c);
 

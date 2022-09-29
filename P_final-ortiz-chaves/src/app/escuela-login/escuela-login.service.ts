@@ -10,7 +10,7 @@ import { login } from '../interfaces';
 export class EscuelaLoginService {
 
    login : login[] = [
-    {correo:'david@gmail.com',contraseña:'hola12345'}
+    {correo:'david@gmail.com',contraseña:'hola12345'},
    ]
 
    sesionObservable: BehaviorSubject<login[]>
@@ -27,7 +27,7 @@ export class EscuelaLoginService {
   }
 
 
-   recibir_Login(usuario : login){
+   recibir_Login(login_Us : login){
     
     
     

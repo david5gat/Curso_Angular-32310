@@ -48,6 +48,13 @@ export class LoginComponent implements OnInit {
 
   formulario_F1(){
    
+    const form_val : login = {
+      contraseña: this.form_login.value.contraseña,
+      correo: this.form_login.value.correo
+    }
+
+    this.EscuelaLoginService.recibir_Login(form_val)
+
   }
 
 
