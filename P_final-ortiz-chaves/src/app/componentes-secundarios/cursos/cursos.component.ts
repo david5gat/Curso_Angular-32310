@@ -8,7 +8,7 @@ import { EscuelaService } from 'src/app/escuela_curso_service/escuela_curso.serv
 import { Cursos } from 'src/app/interfaces';
 import { EditCursoComponent } from '../edit-curso/edit-curso.component';
 
-const Curso_c : Cursos[] = []
+const Curso_c : Cursos[] = [];
 
 
 
@@ -19,6 +19,7 @@ const Curso_c : Cursos[] = []
 })
 
 export class CursosComponent implements OnInit {
+
   @ViewChild(MatTable) tabla! : MatTable<Cursos>
 
   dataSource: MatTableDataSource<Cursos> = new MatTableDataSource(Curso_c)
@@ -35,23 +36,21 @@ export class CursosComponent implements OnInit {
   displayedColumns: string[] = ['nombre_profesor', 'apellido_profesor', 'curso', 'comision','editar'];
  
 
-  edit_curso(elemnt : Cursos){
-    let dialogRef = this.dialog.open(EditCursoComponent,{
+  edit_curso(element : Cursos){
+    const dialogRef = this.dialog.open(EditCursoComponent,{
       width: '300px',
-      data:elemnt
+      data: element
     });
 
-    dialogRef.afterClosed().subscribe(result  =>{
-      if(result){
-        const item = this.dataSource.data.find(curso => curso.comision === result.comision_C);
+    dialogRef.afterClosed().subscribe(resultado  =>{
+      if(resultado){
+        // buscamos la posicion del elemento de la tabla y lo cargamos los nombres tienen que concidir 
+        // entre formularios para no tener que crear una nueva constante para hacer concidir los nombres
+        // y si no, no nos va a cargar en la tabla y va a aprecer vacia
+        const item = this.dataSource.data.find(curso => curso.comision === resultado.comision);
         const index = this.dataSource.data.indexOf(item!);
-        
-        
-        this.dataSource.data[index] = result;
+        this.dataSource.data[index] = resultado;
         this.tabla.renderRows()
-      }else{
-        console.log(result);
-        
       }
     })
   }

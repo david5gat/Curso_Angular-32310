@@ -19,10 +19,13 @@ export class EditCursoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data : Cursos 
   ) { 
     this.form_EditCurso = fb.group({
-      nombre_P : new FormControl(data.nombre_profesor),
-      apellido_P : new FormControl(data.apellido_profesor),
-      curso_C : new FormControl(data.curso),
-      comision_C : new FormControl(data.comision)
+      // el formulario tiene que concidir con el nombre de la @Inject(MAT_DIALOG_DATA) public data : Cursos
+      // y si no nos va a aparecer un array vacio que no se actualiza en 
+      // la tabla  o incertar los diferentes nombres manualmente a la data
+      nombre_profesor : new FormControl(data.nombre_profesor),
+      apellido_profesor : new FormControl(data.apellido_profesor),
+      curso : new FormControl(data.curso),
+      comision : new FormControl(data.comision)
     })
   }
 
