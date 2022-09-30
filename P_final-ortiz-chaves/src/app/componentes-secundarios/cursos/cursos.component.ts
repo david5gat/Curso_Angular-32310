@@ -1,16 +1,14 @@
 
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { LoginComponent } from 'src/app/componentes-principales/login/login.component';
 import { EscuelaService } from 'src/app/escuela_curso_service/escuela_curso.service';
 import { Cursos } from 'src/app/interfaces';
 import { EditCursoComponent } from '../edit-curso/edit-curso.component';
 
 const Curso_c : Cursos[] = []
-
-
 
 
 
@@ -21,10 +19,9 @@ const Curso_c : Cursos[] = []
 })
 
 export class CursosComponent implements OnInit {
+  @ViewChild(MatTable) tabla! : MatTable<Cursos>
 
-  
-
-  dataSource: Cursos[] = Curso_c;
+  dataSource: MatTableDataSource<Cursos> = new MatTableDataSource(Curso_c)
 
 
   constructor(
@@ -39,10 +36,24 @@ export class CursosComponent implements OnInit {
  
 
   edit_curso(elemnt : Cursos){
-    let dialorRef = this.dialog.open(EditCursoComponent,{
-      width: '250px',
-      data: elemnt
+    let dialogRef = this.dialog.open(EditCursoComponent,{
+      width: '300px',
+      data:elemnt
     });
+
+    dialogRef.afterClosed().subscribe(result  =>{
+      if(result){
+        const item = this.dataSource.data.find(curso => curso.comision === result.comision_C);
+        const index = this.dataSource.data.indexOf(item!);
+        
+        
+        this.dataSource.data[index] = result;
+        this.tabla.renderRows()
+      }else{
+        console.log(result);
+        
+      }
+    })
   }
 
 

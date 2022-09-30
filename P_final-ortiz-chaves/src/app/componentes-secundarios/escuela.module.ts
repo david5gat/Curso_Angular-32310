@@ -7,6 +7,7 @@ import { AppModule } from '../app.module';
 import { NgmaterialModule } from '../ngmaterial/ngmaterial.module';
 import { MatTableModule } from '@angular/material/table';
 import { EditCursoComponent } from './edit-curso/edit-curso.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { EditCursoComponent } from './edit-curso/edit-curso.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     EscuelaRoutingModule,
     NgmaterialModule
   ]

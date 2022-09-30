@@ -1,25 +1,33 @@
 
-
-<form action="element">
+<div>
+<form [formGroup]="form_EditCurso">
 
     <mat-form-field appearance="outline">
         <mat-label>Nombre Profesor</mat-label>
-        <input matInput>
+        <input formControlName="nombre_P" matInput>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Apellido Profesor</mat-label>
-        <input matInput>
+        <input formControlName="apellido_P" matInput>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Nombre Profesor</mat-label>
-        <input matInput>
+        <mat-label>Curso</mat-label>
+        <input formControlName="curso_C" matInput>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Comision</mat-label>
-        <input matInput>
+        <input formControlName="comision_C" matInput>
     </mat-form-field>
 
+    
+
 </form>
+</div>
+
+<div>
+    <button mat-button (click)="guardar()">guardar<mat-icon>home</mat-icon></button>
+    <button mat-button (click)="salir()">salir<mat-icon>home</mat-icon></button>
+</div>
